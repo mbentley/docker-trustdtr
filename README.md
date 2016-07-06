@@ -1,7 +1,7 @@
 mbentley/trustdtr
 =================
 
-docker image to pull a self-signed registry certificate local so the Docker Engine trusts it.
+docker image to pull a self-signed registry certificate locally so the Docker Engine trusts it.
 based off of alpine:latest
 
 To pull this image:
