@@ -9,6 +9,24 @@ To pull this image:
 
 Example usage:
 
-`docker run -it --rm -v /etc/docker/certs.d:/etc/docker/certs.d mbentley/trustdtr dtr.example.com`
+```
+docker run -it --rm \
+  -v /etc/docker/certs.d:/etc/docker/certs.d \
+  mbentley/trustdtr dtr.example.com
+```
 
 Note: You must share at least `/etc/docker/certs.d` as a volume in order to be able to write the self-signed certificate to disk.
+
+There is one option parameter that can be set via environment variable: `ROOT_CERT`
+ * `true` (default) - instructs trustdtr to get the root CA certificate as provided from DTR
+ * `false` - instructs trustdtr to get the server certificate instead of the root CA certificate; useful for if the `/ca` endpoint isn't available
+
+
+Example usage:
+
+```
+docker run -it --rm \
+  -v /etc/docker/certs.d:/etc/docker/certs.d \
+  -e ROOT_CERT=false \
+  mbentley/trustdtr dtr.example.com
+```
