@@ -11,11 +11,11 @@ Example usage:
 
 ```
 docker run -it --rm \
-  -v /etc/docker/certs.d:/etc/docker/certs.d \
+  -v /etc/docker:/etc/docker \
   mbentley/trustdtr dtr.example.com
 ```
 
-Note: You must share at least `/etc/docker/certs.d` as a volume in order to be able to write the self-signed certificate to disk.
+Note: You must share at least `/etc/docker/certs.d` as a volume in order to be able to write the self-signed certificate to disk.  If you're on Docker for Mac, you must use '/etc/docker`
 
 There is one option parameter that can be set via environment variable: `ROOT_CERT`
  * `true` (default) - instructs trustdtr to get the root CA certificate as provided from DTR
